@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- ng-app = sebagai tanda untuk struktur pada html sudah disisipi oleh pihak angular -->
+<html lang="en" ng-app="xapp">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular JS</title>
+  <script src="./angular.js"></script>
+  <script src="./app.js"></script>
+</head>
+<body ng-controller="xctrl">
+
+  <div>
+    <h1>{{x}}</h1>
+    <input type="text" ng-model="x">
+  </div>
+  <hr>
+  <br>
+  <h2>{{operation}}</h2>
+  <input type="text" name="obj1" id="obj1" ng-model="obj1">
+  <input type="text" name="obj2" id="obj2" ng-model="obj2">
+  <span>{{hasil}}</span>
+
+  <br><br>
+  <button ng-click="operate(1)">Tambah</button>
+  <button ng-click="operate(2)">Kurangi</button>
+  <button ng-click="operate(3)">Kali</button>
+  <button ng-click="operate(4)">Bagi</button>
+</body>
+</html>
