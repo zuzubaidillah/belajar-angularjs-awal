@@ -25,4 +25,33 @@ app.controller('xctrl', function ($scope) {
         break;
     }
   }
+
+  // tabel siswa
+
+  $scope.siswa = [{
+    nomor: 1,
+    nama: "kamu",
+    kelas: 1,
+    sekor: 200
+  },{
+    nomor: 2,
+    nama: "saya",
+    kelas: 1,
+    sekor: 200
+  },{
+    nomor: 3,
+    nama: "iya",
+    kelas: 1,
+    sekor: 200
+  },{
+    nomor: 4,
+    nama: "opo",
+    kelas: 1,
+    sekor: 200
+  },{
+    nomor: 5,
+    nama: "okeeeh siap",
+    kelas: 1,
+    sekor: 200
+  }];
 });

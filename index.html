@@ -10,7 +10,6 @@
   <script src="./app.js"></script>
 </head>
 <body ng-controller="xctrl">
-
   <div>
     <h1>{{x}}</h1>
     <input type="text" ng-model="x">
@@ -27,5 +26,30 @@
   <button ng-click="operate(2)">Kurangi</button>
   <button ng-click="operate(3)">Kali</button>
   <button ng-click="operate(4)">Bagi</button>
+
+  <br><br>
+  <hr>
+  <h1>Tabel Siswa</h1>
+
+  <span>Kata Kunci</span>
+  <input type="text" name="kata_kunci" id="kata_kunci" ng-model="kata_kunci" placeholder="cari siswa">
+  <br>
+  <table border="1">
+    <tr>
+      <th>No</th>
+      <th>Nama</th>
+      <th>Kelas</th>
+      <th>Sekor</th>
+    </tr>
+    <tr ng-repeat="s in (result = (siswa | filter:kata_kunci))">
+      <td>{{s.nomor}}</td>
+      <td>{{s.nama}}</td>
+      <td>{{s.kelas}}</td>
+      <td>{{s.sekor}}</td>
+    </tr>
+    <tr ng-if="result.length == 0">
+      <td colspan="4">hasil tidak ditemukan</td>
+    </tr>
+  </table>
 </body>
 </html>
