@@ -35,6 +35,13 @@
   <input type="text" name="kata_kunci" id="kata_kunci" ng-model="kata_kunci" placeholder="cari siswa">
   <br>
   <br>
+  <p>
+    <select ng-change="changeAction()" ng-model="pagesize" ng-options="opt as opt for opt in pagesizes">
+    </select>
+    <label>Halaman {{currentpage + 1}} dari {{pagenumber}} halaman </label>
+  </p>
+  <br>
+  <br>
   <table border="1">
     <tr>
       <th>
@@ -50,7 +57,9 @@
         <a href="#" ng-click="boolsekor = ordering(boolsekor, 'sekor')">Sekor</a>
       </th>
     </tr>
-    <tr ng-repeat="s in (result = (siswa | filter:kata_kunci | orderBy:ord:ordstatus))">
+    <tr ng-repeat="s in (result = (siswa | filter:kata_kunci | orderBy:ord:ordstatus))" 
+    ng-if="$index >= (currentpage * pagesize) && $index < ((currentpage + 1) * pagesize)"
+    >
       <td>{{s.nomor}}</td>
       <td>{{s.nama}}</td>
       <td>{{s.kelas}}</td>
@@ -60,5 +69,15 @@
       <td colspan="4">hasil tidak ditemukan</td>
     </tr>
   </table>
+
+  <br>
+  <br>
+
+  <p>
+    <button ng-click="currentpage=0"><<</button>
+    <button ng-click="paging(0)"><</button>
+    <button ng-click="paging(1)">></button>
+    <button ng-click="currentpage=pagenumber-1">>></button>
+  </p>
 </body>
 </html>
