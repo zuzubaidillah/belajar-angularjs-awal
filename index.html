@@ -34,14 +34,23 @@
   <span>Kata Kunci</span>
   <input type="text" name="kata_kunci" id="kata_kunci" ng-model="kata_kunci" placeholder="cari siswa">
   <br>
+  <br>
   <table border="1">
     <tr>
-      <th>No</th>
-      <th>Nama</th>
-      <th>Kelas</th>
-      <th>Sekor</th>
+      <th>
+        <a href="#" ng-click="boolno = ordering(boolno, 'no')">No</a>
+      </th>
+      <th>
+        <a href="#" ng-click="boolnama = ordering(boolnama, 'nama')">Nama</a>
+      </th>
+      <th>
+        <a href="#" ng-click="boolkelas = ordering(boolkelas, 'kelas')">Kelas</a>
+      </th>
+      <th>
+        <a href="#" ng-click="boolsekor = ordering(boolsekor, 'sekor')">Sekor</a>
+      </th>
     </tr>
-    <tr ng-repeat="s in (result = (siswa | filter:kata_kunci))">
+    <tr ng-repeat="s in (result = (siswa | filter:kata_kunci | orderBy:ord:ordstatus))">
       <td>{{s.nomor}}</td>
       <td>{{s.nama}}</td>
       <td>{{s.kelas}}</td>

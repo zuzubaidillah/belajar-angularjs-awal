@@ -54,4 +54,16 @@ app.controller('xctrl', function ($scope) {
     kelas: 1,
     sekor: 200
   }];
+
+  // order by
+  // $scope.ord = function (key) {
+  //   $scope.console.log(key);
+  // }
+  $scope.ordering = function (ordvar, by) {
+    ordvar = !ordvar;
+    $scope.ordstatus = ordvar;
+    $scope.ord = by;
+    return ordvar;
+  }
+
 });
